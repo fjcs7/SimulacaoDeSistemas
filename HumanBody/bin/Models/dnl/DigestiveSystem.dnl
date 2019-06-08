@@ -1,0 +1,73 @@
+A Food has a value!
+the range of Food's value is Integer!
+A Nutrients has a value!
+the range of Nutrients's value is Integer!
+A Satiation has a value!
+the range of Satiation's value is Integer!
+
+use measureFood with type Food!
+use measureNutrients with type Nutrients!
+use measureSatiation with type Satiation!
+
+accepts input on Food with type Food!
+accepts input on Satiation with type Satiation!
+accepts input on Nutrients with type Nutrients!
+
+generates output on Food with type Food!
+generates output on Satiation with type Satiation!
+generates output on Nutrients with type Nutrients!
+
+Initialize variables
+<%
+	measureFood = new Food(new Integer(0));
+	measureNutrients = new Nutrients(new Integer(0));
+	measureSatiation = new Satiation(new Integer(0));
+%>!
+
+to start passivate in InitialState!
+when in InitialState and receive Food go to sendFood!
+when in InitialState and receive Nutrients go to sendNutrients!
+when in InitialState and receive Satiation go to sendSatiation!
+
+hold in sendFood for time 0!
+after sendFood output Hunger!
+from sendFood go to InitialState!
+
+hold in sendNutrients for time 0!
+after sendNutrients output LowNutrients!
+from sendNutrients go to InitialState!
+
+hold in sendSatiation for time 0!
+after sendSatiation output Satiation!
+from sendSatiation go to InitialState!
+
+
+external event for InitialState with Food
+<%
+	measureFood = (Food) messageList.get(0).getData();
+%>!
+
+external event for InitialState with Nutrients
+<%
+	measureNutrients = (Nutrients) messageList.get(0).getData();
+%>!
+
+external event for InitialState with Satiation
+<%
+	measureSatiation = (Satiation) messageList.get(0).getData();
+%>!
+
+output event for sendFood
+<%
+	output.add(outFood, measureFood);
+%>!
+
+output event for sendNutrients
+<%
+	output.add(outNutrients, measureNutrients);
+%>!
+
+output event for sendSatiation
+<%
+	output.add(outSatiation, measureSatiation);
+%>!

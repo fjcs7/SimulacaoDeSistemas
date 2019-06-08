@@ -1,0 +1,52 @@
+A Stimulus has a value!
+the range of Stimulus's value is Integer!
+
+use measureData with type Stimulus!
+
+generates output on Stimulus1 with type Stimulus!
+generates output on Stimulus2 with type Stimulus!
+
+Initialize variables
+<%
+	measureData = new Stimulus(randomNextMesure());
+%>!
+
+to start hold in InitialEvent for time 0!
+from InitialEvent go to SendToSensor1!
+hold in SendToSensor1 for time 0!
+after SendToSensor1 output Stimulus1!
+from SendToSensor1 go to SendToSensor2!
+hold in SendToSensor2 for time 1!
+after SendToSensor2 output Stimulus2!
+from SendToSensor2 go to InitialEvent!
+
+//On the transition for assigned, perform the assignment
+Internal event for SendToSensor1
+<%
+	java.util.Random generator = new java.util.Random();
+	measureData = new Stimulus(randomNextMesure());
+%>!
+
+//On the transition going out from the state s1, perform the actions!
+output event for SendToSensor1
+<%
+	output.add(outStimulus1, measureData);
+%>!
+
+Internal event for SendToSensor2
+<%
+	java.util.Random generator = new java.util.Random();
+	measureData = new Stimulus(randomNextMesure());
+%>!
+output event for SendToSensor2
+<%
+	output.add(outStimulus2, measureData);
+%>!
+
+add additional code
+<%
+int randomNextMesure(){
+	java.util.Random generator = new java.util.Random();
+	return generator.nextInt(10);
+}
+%>! 

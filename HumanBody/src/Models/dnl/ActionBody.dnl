@@ -1,0 +1,46 @@
+A Food has a value!
+the range of Food's value is Integer!
+A Hunger has a value!
+the range of Hunger's value is Integer!
+
+use sendFood with type Food!
+use measureHunger with type Hunger!
+
+generates output on Food with type Food!
+accepts input on Hunger with type Hunger!
+
+Initialize variables
+<%
+	sendFood = new Food(new Integer(0));
+	measureHunger = new Hunger(new Integer(10));
+%>!
+
+to start hold in initialEvent for time 1!
+from initialEvent go to isStarving!
+
+hold in isStarving for time 1!
+after isStarving output Food!
+from isStarving go to isHunger!
+
+passivate in isHunger!
+when in isHunger and receive Hunger go to isStarving!
+
+external event for isHunger with Hunger
+<%
+	for(int i = 0; i < messageList.size(); i++)
+	{
+		Hunger valueReceived = (Hunger)messageList.get(i).getData();
+		measureHunger = valueReceived;
+		System.out.println("Value: " + valueReceived.getValue());
+	}
+%>!
+
+//On the transition going out from the state, perform the actions
+output event for isStarving
+<%
+	sendFood = new Food(new Integer(0));
+	if(measureHunger.getValue()>= 10) {
+		sendFood = new Food(new Integer(1));
+	}
+	output.add(outFood, sendFood);
+%>!

@@ -1,0 +1,4 @@
+From the top perspective, AmbientBody is made of HumanBody and ActionBody! 
+
+From the top perspective, HumanBody sends Hunger to ActionBody!
+From the top perspective, ActionBody sends Food to HumanBody! 

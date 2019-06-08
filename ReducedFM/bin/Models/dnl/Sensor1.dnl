@@ -1,0 +1,28 @@
+A Depth has a value!
+the range of Depth's value is Integer!
+A Stimulus has a value!
+the range of Stimulus's value is Integer!
+
+use measureData with type Stimulus!
+use sendData with type Depth!
+accepts input on Stimulus1 with type Stimulus! 
+
+generates output on Depth with type Depth!
+
+to start passivate in InitialState!
+when in InitialState and receive Stimulus1 go to SendMessage!
+hold in SendMessage for time 0!
+after SendMessage output Depth!
+from SendMessage go to InitialState!
+
+external event for InitialState with Stimulus1
+<%
+	measureData = (Stimulus) messageList.get(0).getData();
+	sendData = new Depth(measureData.getValue());
+%>!
+
+//On the transition going out from the state s1, perform the actions!
+output event for SendMessage
+<%
+	output.add(outDepth, sendData);
+%>!

@@ -1,0 +1,54 @@
+A Nutrients has a value!
+the range of Nutrients's value is Integer!
+A LowNutrients has a value!
+the range of LowNutrients's value is Integer!
+
+use measureNutrients with type Nutrients!
+use measureLowNutrients with type LowNutrients!
+
+accepts input on Nutrients with type Satiation!
+accepts input on LowNutrients with type LowNutrients!
+
+generates output on Nutrients with type Nutrients!
+generates output on LowNutrients with type LowNutrients!
+
+
+Initialize variables
+<%
+	measureNutrients = new Nutrients(new Integer(0));
+	measureLowNutrients = new LowNutrients(new Integer(0));
+%>!
+
+to start passivate in InitialState!
+when in InitialState and receive Nutrients go to sendNutrients!
+when in InitialState and receive LowNutrients go to sendLowNutrients!
+
+hold in sendNutrients for time 0!
+after sendNutrients output Nutrients!
+from sendNutrients go to InitialState!
+
+hold in sendLowNutrients for time 0!
+after sendLowNutrients output LowNutrients!
+from sendLowNutrients go to InitialState!
+
+
+external event for InitialState with Nutrients
+<%
+	measureNutrients = (Nutrients) messageList.get(0).getData();
+%>!
+
+external event for InitialState with LowNutrients
+<%
+	measureLowNutrients = (LowNutrients) messageList.get(0).getData();
+%>!
+
+output event for sendNutrients
+<%
+	output.add(outNutrients, measureNutrients);
+%>!
+
+output event for sendLowNutrients
+<%
+	output.add(outLowNutrients, measureLowNutrients);
+%>!
+

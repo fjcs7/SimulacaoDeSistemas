@@ -1,0 +1,4 @@
+set name of model as SimulationFM !
+pruned from SimulationFM.ses !
+mergeAll from SimulationFM.ses !
+write class files !

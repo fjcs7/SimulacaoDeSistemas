@@ -1,0 +1,39 @@
+A Nutrients has a value!
+the range of Nutrients's value is Integer!
+A Food has a value!
+the range of Food's value is Integer!
+
+use measureFood with type Food!
+use measureData with type Nutrients!
+
+accepts input on Food with type Food!
+generates output on Nutrients with type Nutrients!
+
+Initialize variables
+<%
+	measureData = new Nutrients(new Integer(0));
+%>!
+
+to start passivate in InitialState!
+when in InitialState and receive Food go to generateNutrients!
+
+hold in generateNutrients for time 1!
+after generateNutrients output Nutrients!
+from generateNutrients go to InitialState!
+
+external event for InitialState with Food
+<%
+	measureFood = (Food) messageList.get(0).getData();
+%>!
+
+//On the transition for assigned, perform the assignment
+Internal event for generateNutrients
+<%
+	measureData = new Nutrients(measureFood.getValue());
+%>!
+
+//On the transition going out from the state, perform the actions
+output event for generateNutrients
+<%
+	output.add(outNutrients, measureData);
+%>!

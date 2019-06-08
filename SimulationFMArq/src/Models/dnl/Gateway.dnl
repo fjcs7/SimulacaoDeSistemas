@@ -1,0 +1,30 @@
+add library
+<%
+	import java.util.HashSet;
+	import Models.utils.WriteFiles;
+%>!
+
+A Depth has a value!
+the range of Depth's value is Integer!
+
+use measureData with type Depth!
+accepts input on Depth with type Depth! //environment //sense
+
+to start passivate in s0!
+when in s0 and receive Depth go to s0!
+
+external event for s0 with Depth
+<%
+	WriteFiles wf = new WriteFiles();
+	wf.setFileName("TESTE1.txt");
+	HashSet<Integer> set = new HashSet<Integer>();
+	for(int i = 0; i < messageList.size(); i++){
+		Depth valueReceived = (Depth)messageList.get(i).getData();
+		int value = (int) valueReceived.getValue();
+		set.add(value);
+		String valuePrint = "Value received: " + value;
+		System.out.println();
+		wf.writeInFile(valuePrint);
+	}
+%>!
+

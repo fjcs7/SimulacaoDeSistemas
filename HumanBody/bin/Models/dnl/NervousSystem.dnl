@@ -1,0 +1,77 @@
+A Hunger has a value!
+the range of Hunger's value is Integer!
+
+A LowNutrients has a value!
+the range of LowNutrients's value is Integer!
+
+A Nutrients has a value!
+the range of Nutrients's value is Integer!
+
+use measureHunger with type Hunger!
+use measureSatiation with type Satiation!
+use measureLowNutrients with type LowNutrients!
+
+accepts input on Hunger with type Hunger!
+accepts input on Satiation with type Satiation!
+accepts input on LowNutrients with type LowNutrients!
+
+generates output on Hunger with type Hunger!
+generates output on Satiation with type Satiation!
+generates output on LowNutrients with type LowNutrients!
+
+
+Initialize variables
+<%
+	measureHunger = new Hunger(new Integer(0));
+	measureLowNutrients = new LowNutrients(new Integer(0));
+	measureSatiation = new Satiation(new Integer(0));
+%>!
+
+to start passivate in InitialState!
+when in InitialState and receive Hunger go to sendHunger!
+when in InitialState and receive Satiation go to sendSatiation!
+when in InitialState and receive LowNutrients go to sendLowNutrients!
+
+hold in sendHunger for time 0!
+after sendHunger output Hunger!
+from sendHunger go to InitialState!
+
+hold in sendSatiation for time 0!
+after sendSatiation output Satiation!
+from sendSatiation go to InitialState!
+
+hold in sendLowNutrients for time 0!
+after sendLowNutrients output LowNutrients!
+from sendLowNutrients go to InitialState!
+
+
+external event for InitialState with Hunger
+<%
+	measureHunger = (Hunger) messageList.get(0).getData();
+%>!
+
+external event for InitialState with Satiation
+<%
+	measureSatiation = (Satiation) messageList.get(0).getData();
+%>!
+
+external event for InitialState with LowNutrients
+<%
+	measureLowNutrients = (LowNutrients) messageList.get(0).getData();
+%>!
+
+output event for sendHunger
+<%
+	output.add(outHunger, measureHunger);
+%>!
+
+output event for sendSatiation
+<%
+	output.add(outSatiation, measureSatiation);
+%>!
+
+output event for sendLowNutrients
+<%
+	output.add(outLowNutrients, measureLowNutrients);
+%>!
+

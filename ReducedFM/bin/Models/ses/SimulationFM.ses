@@ -1,0 +1,7 @@
+From the top perspective, SimulationFM is made of Sensor1, Sensor2, Gateway, and StimulusGenerator!
+
+From the top perspective, Sensor1 sends Depth to Sensor2!
+From the top perspective, Sensor2 sends Depth to Gateway!
+
+From the top perspective, StimulusGenerator sends Stimulus1 to Sensor1!
+From the top perspective, StimulusGenerator sends Stimulus2 to Sensor2!

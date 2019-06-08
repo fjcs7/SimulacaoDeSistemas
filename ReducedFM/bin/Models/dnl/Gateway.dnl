@@ -1,0 +1,28 @@
+A Depth has a value!
+the range of Depth's value is Integer!
+
+use measureData with type Depth!
+accepts input on Depth with type Depth! //environment //sense!
+
+Initialize variables
+<%
+	measureData = new Depth(new Integer(0));
+%>!
+
+to start passivate in s0!
+when in s0 and receive Depth go to s1!
+hold in s1 for time 1!
+from s1 go to s0!
+
+external event for s0 with Depth
+<%
+	for(int i = 0; i < messageList.size(); i++)
+	{
+		Depth valueReceived = (Depth)messageList.get(i).getData();
+		int value = (int) valueReceived.getValue();
+		System.out.println("Value: " + value);
+		if(value > 2 ){
+			System.out.println("#####=====>>>>> Warning! Warning! Value is greater than 2!");
+		}
+	}
+%>!

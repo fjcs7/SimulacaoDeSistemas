@@ -1,0 +1,41 @@
+add library
+<%
+	import java.io.BufferedReader;
+	import java.io.File;
+	import java.io.FileReader;
+	import java.io.IOException;
+%>!
+
+A Depth has a value!
+the range of Depth's value is Integer!
+
+use measureData with type Depth!
+generates output on Depth with type Depth!
+
+Initialize variables
+<%
+	measureData = new Depth(0);
+%>!
+
+to start hold in s0 for time 1!
+after s0 output Depth!
+from s0 go to s1!
+hold in s1 for time 1!
+from s1 go to s0!
+
+output event for s0
+<%
+	try
+	{
+		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Fernando Junio\\git\\Simulacoes\\SimulationFMArq\\LeituraTeste1.txt"));
+		while(br.ready()){
+			 String linha = br.readLine();
+			 System.out.println("SENSOR1:           " + linha);
+			 measureData = new Depth(new Integer(linha));
+			 output.add(outDepth, measureData);
+		}
+		br.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+%>!

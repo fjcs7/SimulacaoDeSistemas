@@ -1,0 +1,28 @@
+From the body perspective, HumanBody is made of DigestiveSystem, CirculatorySystem, and NervousSystem!
+
+From the digestive perspective, DigestiveSystem is made of Mouth, Stomach, and Intestine!
+From the circulation perspective, CirculatorySystem is made of Heart and Veins!
+
+//Torna possivel que a Food recebida no DigestiveSystem seja enviada para a boca!
+From the body perspective, HumanBody sends Food to DigestiveSystem!
+From the digestive perspective, DigestiveSystem sends Food to Mouth!
+
+//Composicao do corpo em diferentes perspectivas!
+From the nervous perspective, NervousSystem is made of Brain!
+
+From the digestive perspective, Mouth sends Food to Stomach!
+From the digestive perspective, Stomach sends Food to Intestine!
+From the digestive perspective, Stomach sends Satiation to DigestiveSystem!
+From the digestive perspective, Intestine sends Nutrients to DigestiveSystem!
+
+From the body perspective, DigestiveSystem sends Satiation to NervousSystem!
+From the body perspective, DigestiveSystem sends Nutrients to CirculatorySystem!
+From the body perspective, CirculatorySystem sends LowNutrients to NervousSystem!
+From the body perspective, NervousSystem sends Hunger to HumanBody!
+
+From the circulation perspective, CirculatorySystem sends Nutrients to Veins!
+From the circulation perspective, Veins sends LowNutrients to CirculatorySystem!
+
+From the nervous perspective, NervousSystem sends LowNutrients to Brain!
+From the nervous perspective, NervousSystem sends Satiation to Brain!
+From the nervous perspective, Brain sends Hunger to NervousSystem!

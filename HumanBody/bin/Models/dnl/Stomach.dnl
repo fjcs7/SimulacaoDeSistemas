@@ -1,0 +1,42 @@
+A Satiation has a value!
+the range of Satiation's value is Integer!
+A Food has a value!
+the range of Food's value is Integer!
+
+use measureFood with type Food!
+use measureSatiation with type Satiation!
+
+accepts input on Food with type Food!
+generates output on Satiation with type Satiation!
+
+Initialize variables
+<%
+	measureFood = new Food(new Integer(0));
+	measureSatiation = new Satiation(new Integer(0));
+%>!
+
+to start passivate in InitialState!
+when in InitialState and receive Food go to digestFood!
+
+hold in digestFood for time 1!
+after digestFood output Food!
+after digestFood output Satiation!
+from digestFood go to InitialState!
+
+external event for InitialState with Food
+<%
+	measureFood = (Food) messageList.get(0).getData();
+%>!
+
+//On the transition for assigned, perform the assignment
+Internal event for digestFood
+<%
+	measureSatiation = new Satiation(measureFood.getValue());
+%>!
+
+//On the transition going out from the state, perform the actions
+output event for digestFood
+<%
+	output.add(outFood, measureFood);
+	output.add(outSatiation, measureSatiation);
+%>!

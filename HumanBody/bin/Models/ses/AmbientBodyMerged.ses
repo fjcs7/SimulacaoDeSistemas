@@ -1,0 +1,27 @@
+From the top perspective, AmbientBody is made of ActionBody and HumanBody!
+From the top perspective, HumanBody sends  outHunger to ActionBody as inHunger!
+From the top perspective, ActionBody sends  outFood to HumanBody as inFood!
+
+From the body perspective, HumanBody is made of NervousSystem, DigestiveSystem, and CirculatorySystem!
+From the body perspective, NervousSystem sends  outHunger to HumanBody as outHunger!
+From the body perspective, DigestiveSystem sends  outSatiation to NervousSystem as inSatiation!
+From the body perspective, HumanBody sends  inFood to DigestiveSystem as inFood!
+From the body perspective, CirculatorySystem sends  outLowNutrients to NervousSystem as inLowNutrients!
+From the body perspective, DigestiveSystem sends  outNutrients to CirculatorySystem as inNutrients!
+
+From the circulation perspective, CirculatorySystem is made of Veins and Heart!
+From the circulation perspective, Veins sends  outLowNutrients to CirculatorySystem as outLowNutrients!
+From the circulation perspective, CirculatorySystem sends  inNutrients to Veins as inNutrients!
+
+From the nervous perspective, NervousSystem is made of Brain!
+From the nervous perspective, Brain sends  outHunger to NervousSystem as outHunger!
+From the nervous perspective, NervousSystem sends  inSatiation to Brain as inSatiation!
+From the nervous perspective, NervousSystem sends  inLowNutrients to Brain as inLowNutrients!
+
+From the digestive perspective, DigestiveSystem is made of Mouth, Stomach, and Intestine!
+From the digestive perspective, Stomach sends  outSatiation to DigestiveSystem as outSatiation!
+From the digestive perspective, Mouth sends  outFood to Stomach as inFood!
+From the digestive perspective, Intestine sends  outNutrients to DigestiveSystem as outNutrients!
+From the digestive perspective, Stomach sends  outFood to Intestine as inFood!
+From the digestive perspective, DigestiveSystem sends  inFood to Mouth as inFood!
+

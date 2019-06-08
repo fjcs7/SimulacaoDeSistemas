@@ -1,0 +1,4 @@
+set name of model as HumanBody !
+pruned from HumanBody.ses !
+mergeAll from HumanBody.ses !
+write class files !

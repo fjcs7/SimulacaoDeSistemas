@@ -1,0 +1,19 @@
+A Blood has a value!
+the range of Blood's value is Integer!
+
+A Food has a value!
+the range of Food's value is Integer!
+
+A Hunger has a value!
+the range of Hunger's value is Integer!
+
+A LowNutrients has a value!
+the range of LowNutrients's value is Integer!
+
+A Nutrients has a value!
+the range of Nutrients's value is Integer!
+
+A Satiation has a value!
+the range of Satiation's value is Integer!
+
+to start passivate in InitialState!
